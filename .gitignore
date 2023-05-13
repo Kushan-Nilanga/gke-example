@@ -1,0 +1,8 @@
+proj_variables.tf
+.terraform
+*.tfstate
+*.tfstate.backup
+eastern-*.json
+.terraform.lock*
+node_modules
+package-lock.json
