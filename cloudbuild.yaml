@@ -4,4 +4,4 @@
 steps:
   - name: "gcr.io/cloud-builders/gcloud"
     entrypoint: "bash"
-    args: ["-c", 'echo "The time is $(date)."']
+    args: ["-c", 'echo "The time is $(date). This is a test."']
