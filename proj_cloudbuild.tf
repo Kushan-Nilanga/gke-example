@@ -8,7 +8,7 @@ resource "google_cloudbuild_trigger" "proj_cloudbuild" {
     project_id = var.project_id
 
     repo_name   = "${var.project_owner}/${var.project_name}"
-    branch_name = "main"
+    branch_name = "master"
   }
 }
 
