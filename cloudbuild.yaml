@@ -1,0 +1,7 @@
+# simple cloudbuild.yaml file that
+# echo's the current date and time
+
+steps:
+  - name: "gcr.io/cloud-builders/gcloud"
+    entrypoint: "bash"
+    args: ["-c", 'echo "The time is $(date)."']
