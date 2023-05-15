@@ -39,13 +39,12 @@ spec:
       port: 80
       targetPort: 8081
   type: LoadBalancer
-
----
-apiVersion: v1
-kind: Secret
-metadata:
-  name: mongo-secret
-type: Opaque
-data:
-  MONGO_INITDB_ROOT_USERNAME: YWRtaW4=
-  MONGO_INITDB_ROOT_PASSWORD: cGFzc3dvcmQ=
+# ---
+# apiVersion: v1
+# kind: Secret
+# metadata:
+#   name: mongo-secret
+# type: Opaque
+# data:
+#   MONGO_INITDB_ROOT_USERNAME: YWRtaW4=
+#   MONGO_INITDB_ROOT_PASSWORD: cGFzc3dvcmQ=
