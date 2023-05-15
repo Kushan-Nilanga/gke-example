@@ -19,14 +19,23 @@ steps:
         "australia-southeast1-docker.pkg.dev/eastern-thinker-386510/eastern-thinker-386510-repo/nodejs",
       ]
 
-  # deploy the kubernetes cluster
-  - name: "gcr.io/cloud-builders/gke-deploy"
+  # service deployment
+  - name: "gcr.io/cloud-builders/kubectl"
+    args: ["apply", "-f", "service.yaml"]
+
+  # deployment deployment
+  - name: "gcr.io/cloud-builders/kubectl"
     args:
-      [
-        "run",
-        "--location=australia-southeast1-a",
-        "--cluster=primary",
-        "--filename=service.yaml",
-        "--filename=deployment.yaml",
-        "--image=australia-southeast1-docker.pkg.dev/eastern-thinker-386510/eastern-thinker-386510-repo/nodejs:latest",
-      ]
+      ["apply", "-f", "deployment.yaml"]
+
+  #     # deploy the kubernetes cluster
+  # - name: "gcr.io/cloud-builders/gke-deploy"
+  #   args:
+  #     [
+  #       "run",
+  #       "--location=australia-southeast1-a",
+  #       "--cluster=primary",
+  #       "--filename=service.yaml",
+  #       "--filename=deployment.yaml",
+  #       "--image=australia-southeast1-docker.pkg.dev/eastern-thinker-386510/eastern-thinker-386510-repo/nodejs:latest",
+  #     ]
