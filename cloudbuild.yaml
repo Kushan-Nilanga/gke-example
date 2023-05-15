@@ -2,6 +2,10 @@
 # echo's the current date and time
 
 steps:
-  - name: "gcr.io/cloud-builders/gcloud"
-    entrypoint: "bash"
-    args: ["-c", 'echo "The time is $(date). This is a test."']
+  # build the nodejs image
+  - name: "gcr.io/cloud-builders/docker"
+    args: ["build", "-t", "gcr.io/gke-example/nodejs", "."]
+
+  # push the image to the container registry
+  - name: "gcr.io/cloud-builders/docker"
+    args: ["push", "gcr.io/gke-example/nodejs"]
