@@ -11,5 +11,26 @@ steps:
         ".",
       ]
 
-images:
-  - "australia-southeast1-docker.pkg.dev/eastern-thinker-386510/eastern-thinker-386510-repo/nodejs"
+  # push the nodejs image to the container registry
+  - name: "gcr.io/cloud-builders/docker"
+    args:
+      [
+        "push",
+        "australia-southeast1-docker.pkg.dev/eastern-thinker-386510/eastern-thinker-386510-repo/nodejs",
+      ]
+
+  # deploy the kubernetes cluster
+  - name: "gcr.io/cloud-builders/gke-deploy"
+    args:
+      [
+        "--location",
+        "australia-southeast1",
+        "--cluster",
+        "eastern-thinker-386510-cluster",
+        "--filename",
+        "service.yaml",
+        "--filename",
+        "deployment.yaml",
+        "--image",
+        "australia-southeast1-docker.pkg.dev/eastern-thinker-386510/eastern-thinker-386510-repo/nodejs:latest",
+      ]
