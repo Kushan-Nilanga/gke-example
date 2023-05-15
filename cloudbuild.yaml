@@ -7,9 +7,9 @@ steps:
       [
         "build",
         "-t",
-        "australia-southeast1-docker.pkg.dev/eastern-thinker-386510/gke-example-repo/notes",
+        "australia-southeast1-docker.pkg.dev/eastern-thinker-386510/eastern-thinker-386510-repo",
         ".",
       ]
 
 images:
-  - "australia-southeast1-docker.pkg.dev/eastern-thinker-386510/gke-example-repo/notes"
+  - "australia-southeast1-docker.pkg.dev/eastern-thinker-386510/eastern-thinker-386510-repo"
