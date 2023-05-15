@@ -7,9 +7,9 @@ steps:
       [
         "build",
         "-t",
-        "australia-southeast1-docker.pkg.dev/eastern-thinker-386510/eastern-thinker-386510-repo",
+        "australia-southeast1-docker.pkg.dev/eastern-thinker-386510/eastern-thinker-386510-repo/nodejs",
         ".",
       ]
 
 images:
-  - "australia-southeast1-docker.pkg.dev/eastern-thinker-386510/eastern-thinker-386510-repo"
+  - "australia-southeast1-docker.pkg.dev/eastern-thinker-386510/eastern-thinker-386510-repo/nodejs"
