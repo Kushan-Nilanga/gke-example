@@ -4,9 +4,9 @@ steps:
   # build the nodejs image
   - name: "gcr.io/cloud-builders/docker"
     env:
-      - "LOCATION=australia-southeast1"
-      - "REPOSITORY=gke-project-repo"
-      - "IMAGE=nodejs"
+      - "_LOCATION=australia-southeast1"
+      - "_REPOSITORY=gke-project-repo"
+      - "_IMAGE=nodejs"
     args:
       [
         "build",
