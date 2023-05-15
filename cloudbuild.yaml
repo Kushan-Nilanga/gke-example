@@ -3,17 +3,13 @@
 steps:
   # build the nodejs image
   - name: "gcr.io/cloud-builders/docker"
-    env:
-      - "_LOCATION=australia-southeast1"
-      - "_REPOSITORY=gke-project-repo"
-      - "_IMAGE=nodejs"
     args:
       [
         "build",
         "-t",
-        "${_LOCATION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/${_IMAGE}",
+        "australia-southeast1-docker.pkg.dev/eastern-thinker-386510/gke-example-repo/notes",
         ".",
       ]
 
 images:
-  - "${_LOCATION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/${_IMAGE}"
+  - "australia-southeast1-docker.pkg.dev/eastern-thinker-386510/gke-example-repo/notes"
