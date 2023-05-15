@@ -1,11 +1,23 @@
 # simple cloudbuild.yaml file that
-# echo's the current date and time
+# echo's the current date and tim
+
+env:
+  # set the location, repository and image name
+  # to be used in the build step
+  - _LOCATION=australia-southeast1
+  - _REPOSITORY=gke-project-repo
+  - _IMAGE=nodejs
 
 steps:
   # build the nodejs image
   - name: "gcr.io/cloud-builders/docker"
-    args: ["build", "-t", "gcr.io/gke-example/nodejs", "."]
+    args:
+      [
+        "build",
+        "-t",
+        "${_LOCATION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/${_IMAGE}",
+        ".",
+      ]
 
-  # push the image to the container registry
-  - name: "gcr.io/cloud-builders/docker"
-    args: ["push", "gcr.io/gke-example/nodejs"]
+images:
+  - "${_LOCATION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/${_IMAGE}"
